@@ -24,14 +24,16 @@ export class CaAppComponent {
             debugger;
             const moduleFactory = this.compiler.compileModuleSync(module.default);
             const moduleRef = moduleFactory.create(this.injector);
-            const widgets1 = moduleRef.injector.get('component-a1');
-            const widgets2 = moduleRef.injector.get('component-a2');
             const resolver = moduleRef.componentFactoryResolver;
 
+            const widgets1 = moduleRef.injector.get('component-a1');
             const componentFactory1 = resolver.resolveComponentFactory(widgets1[0][0].component);
             const componentRef1 = this.vc1.createComponent(componentFactory1);
+            
+            //data to component that is required to perform it.
             componentRef1.instance.data = "AMAN KUMAR";
-
+            
+            const widgets2 = moduleRef.injector.get('component-a2');
             const componentFactory2 = resolver.resolveComponentFactory(widgets2[0][0].component);
             this.vc2.createComponent(componentFactory2);
         })
