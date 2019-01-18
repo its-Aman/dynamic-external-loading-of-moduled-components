@@ -32,6 +32,9 @@ export class CaAppComponent {
             
             //data to component that is required to perform it.
             componentRef1.instance.data = "AMAN KUMAR";
+            setTimeout(() => {
+            componentRef1.instance.data = "Akash Singhal";                
+            }, 2000);
             
             const widgets2 = moduleRef.injector.get('component-a2');
             const componentFactory2 = resolver.resolveComponentFactory(widgets2[0][0].component);
